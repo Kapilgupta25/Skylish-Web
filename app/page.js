@@ -1,65 +1,148 @@
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="bg-[#f6f8f5]">
+
+      {/* ================= HERO ================= */}
+      <section className="bg-[#123c2a] text-white">
+        <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
+          
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+              Bring The Nature <br /> Close To You
+            </h2>
+            <p className="mt-6 text-gray-200">
+              Discover beautiful indoor plants to make your life greener and healthier.
+            </p>
+
+            <div className="mt-8 flex gap-4">
+              <button className="bg-[#e07a3f] px-6 py-3 rounded-md">
+                Explore Plants
+              </button>
+              <button className="border border-white px-6 py-3 rounded-md">
+                Learn More
+              </button>
+            </div>
+          </div>
+
+          <div className="flex justify-center">
+            <div className="bg-white rounded-full p-10">
+              <Image
+                src="/plant.png"
+                alt="Plant"
+                width={220}
+                height={220}
+              />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ================= PRODUCTS ================= */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <h3 className="text-3xl font-bold text-center mb-10">
+          Our Products
+        </h3>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[1,2,3,4,5,6,7,8].map((item) => (
+            <div key={item} className="bg-white rounded-xl shadow-sm p-4 text-center">
+              <div className="bg-[#e6efe9] rounded-lg p-6 mb-4">
+                <Image
+                  src="/plant.png"
+                  alt="Plant"
+                  width={120}
+                  height={120}
+                  className="mx-auto"
+                />
+              </div>
+              <h4 className="font-semibold">Indoor Plant</h4>
+              <p className="text-sm text-gray-500">₹499</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ================= CTA BANNER ================= */}
+      <section className="bg-[#123c2a] text-white">
+        <div className="max-w-7xl mx-auto px-6 py-16 text-center">
+          <h3 className="text-3xl font-bold">
+            Grow Plants for a Better Life
+          </h3>
+          <p className="mt-4 text-gray-200">
+            Start your green journey today with our best indoor plants.
           </p>
+          <button className="mt-6 bg-[#e07a3f] px-8 py-3 rounded-md">
+            Get Started
+          </button>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+      </section>
+
+      {/* ================= FEATURES ================= */}
+      <section className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-8">
+        {[
+          "Healthy Plants",
+          "Fast Delivery",
+          "Easy Maintenance",
+        ].map((feature) => (
+          <div key={feature} className="bg-white rounded-xl p-6 text-center shadow-sm">
+            <div className="w-14 h-14 bg-[#e6efe9] rounded-full mx-auto mb-4"></div>
+            <h4 className="font-semibold">{feature}</h4>
+            <p className="text-sm text-gray-500 mt-2">
+              Carefully selected plants for your home and office.
+            </p>
+          </div>
+        ))}
+      </section>
+
+      {/* ================= FOOTER ================= */}
+      <footer className="bg-[#123c2a] text-gray-300">
+        <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-4 gap-8">
+
+          <div>
+            <h4 className="text-white font-bold text-lg mb-4">GreenStore</h4>
+            <p className="text-sm">
+              Bringing nature closer to your home.
+            </p>
+          </div>
+
+          <div>
+            <h5 className="text-white mb-3">Quick Links</h5>
+            <ul className="text-sm space-y-2">
+              <li>Home</li>
+              <li>Products</li>
+              <li>About</li>
+              <li>Contact</li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 className="text-white mb-3">Support</h5>
+            <ul className="text-sm space-y-2">
+              <li>FAQs</li>
+              <li>Privacy Policy</li>
+              <li>Terms</li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 className="text-white mb-3">Subscribe</h5>
+            <input
+              placeholder="Your email"
+              className="w-full px-3 py-2 rounded-md text-black"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+
         </div>
-      </main>
+
+        <div className="text-center text-sm py-4 border-t border-white/10">
+          © 2026 GreenStore. All rights reserved.
+        </div>
+      </footer>
+
     </div>
   );
 }
