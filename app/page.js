@@ -3,25 +3,29 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <div className="bg-[#f6f8f5]">
 
+  <div className="relative min-h-screen">
+    <div
+      className="fixed inset-0 -z-10 bg-no-repeat bg-cover bg-center"
+      style={{ backgroundImage: "url('/bgSkylish.jpeg')" }}
+    />
+
+    <main className="relative z-10">
+    
       {/* ================= HERO ================= */}
-      <section className="bg-[#123c2a] text-white">
+      <section className="text-black">
         <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
           
           <div>
             <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-              Bring The Nature <br /> Close To You
+              SKYLISH <br/> Your Style, Your Rules
             </h2>
-            <p className="mt-6 text-gray-200">
-              Discover beautiful indoor plants to make your life greener and healthier.
+            <p className="mt-6 text-xl text-gray-900">
+              Create custom T-shirts that speak your personality.
             </p>
 
             <div className="mt-8 flex gap-4">
-              <button className="bg-[#e07a3f] px-6 py-3 rounded-md">
-                Explore Plants
-              </button>
-              <button className="border border-white px-6 py-3 rounded-md">
+              <button className="border bg-gray-400 border-white px-6 py-3 rounded-md">
                 Learn More
               </button>
             </div>
@@ -30,8 +34,8 @@ export default function HomePage() {
           <div className="flex justify-center">
             <div className="bg-white rounded-full p-10">
               <Image
-                src="/plant.png"
-                alt="Plant"
+                src="/skylish.png"
+                alt="Skylish"
                 width={220}
                 height={220}
               />
@@ -43,7 +47,7 @@ export default function HomePage() {
 
       {/* ================= PRODUCTS ================= */}
       <section className="max-w-7xl mx-auto px-6 py-20">
-        <h3 className="text-3xl font-bold text-center mb-10">
+        <h3 className="text-3xl text-black font-bold text-center mb-10">
           Our Products
         </h3>
 
@@ -59,7 +63,7 @@ export default function HomePage() {
                   className="mx-auto"
                 />
               </div>
-              <h4 className="font-semibold">Indoor Plant</h4>
+              <h4 className="font-semibold">t-Shirts</h4>
               <p className="text-sm text-gray-500">₹499</p>
             </div>
           ))}
@@ -67,7 +71,7 @@ export default function HomePage() {
       </section>
 
       {/* ================= CTA BANNER ================= */}
-      <section className="bg-[#123c2a] text-white">
+      <section className="text-white">
         <div className="max-w-7xl mx-auto px-6 py-16 text-center">
           <h3 className="text-3xl font-bold">
             Grow Plants for a Better Life
@@ -98,51 +102,7 @@ export default function HomePage() {
         ))}
       </section>
 
-      {/* ================= FOOTER ================= */}
-      <footer className="bg-[#123c2a] text-gray-300">
-        <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-4 gap-8">
-
-          <div>
-            <h4 className="text-white font-bold text-lg mb-4">GreenStore</h4>
-            <p className="text-sm">
-              Bringing nature closer to your home.
-            </p>
-          </div>
-
-          <div>
-            <h5 className="text-white mb-3">Quick Links</h5>
-            <ul className="text-sm space-y-2">
-              <li>Home</li>
-              <li>Products</li>
-              <li>About</li>
-              <li>Contact</li>
-            </ul>
-          </div>
-
-          <div>
-            <h5 className="text-white mb-3">Support</h5>
-            <ul className="text-sm space-y-2">
-              <li>FAQs</li>
-              <li>Privacy Policy</li>
-              <li>Terms</li>
-            </ul>
-          </div>
-
-          <div>
-            <h5 className="text-white mb-3">Subscribe</h5>
-            <input
-              placeholder="Your email"
-              className="w-full px-3 py-2 rounded-md text-black"
-            />
-          </div>
-
-        </div>
-
-        <div className="text-center text-sm py-4 border-t border-white/10">
-          © 2026 GreenStore. All rights reserved.
-        </div>
-      </footer>
-
-    </div>
+    </main>
+  </div>
   );
 }
