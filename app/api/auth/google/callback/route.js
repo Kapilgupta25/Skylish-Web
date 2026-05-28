@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { getAuthConfigError } from "@/lib/auth/config";
 import {
   GOOGLE_CALLBACK_COOKIE_NAME,
   GOOGLE_STATE_COOKIE_NAME,
@@ -15,6 +16,12 @@ function redirectWithError(request, errorCode) {
 }
 
 export async function GET(request) {
+  const configError = getAuthConfigError("google");
+
+  if (configError) {
+    return redirectWithError(request, "google_not_configured");
+  }
+
   const requestUrl = new URL(request.url);
   const state = requestUrl.searchParams.get("state");
   const code = requestUrl.searchParams.get("code");

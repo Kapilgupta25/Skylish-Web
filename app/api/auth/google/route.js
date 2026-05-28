@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { randomBytes } from "node:crypto";
+import { getAuthConfigError } from "@/lib/auth/config";
 import {
   attachGoogleStateCookies,
   getGoogleRedirectUri,
@@ -8,11 +9,13 @@ import {
 
 
 export async function GET(request) {
-  const clientId = process.env.GOOGLE_CLIENT_ID;
+  const configError = getAuthConfigError("google");
 
-  if (!clientId) {
+  if (configError) {
     return NextResponse.redirect(new URL("/login?error=google_not_configured", request.url));
   }
+
+  const clientId = process.env.GOOGLE_CLIENT_ID;
 
   const requestUrl = new URL(request.url);
   const origin = requestUrl.origin;

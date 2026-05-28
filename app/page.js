@@ -32,12 +32,13 @@ export default function HomePage() {
           </div>
 
           <div className="flex justify-center">
-            <div className="bg-white rounded-full p-10">
+            <div className="w-64 h-64 rounded-full overflow-hidden bg-white flex items-center justify-center">
               <Image
-                src="/skylish.png"
+                src="/skylishSK.png"
                 alt="Skylish"
-                width={220}
-                height={220}
+                width={280}
+                height={280}
+                className="w-full h-full object-cover rounded-full"
               />
             </div>
           </div>
@@ -56,10 +57,10 @@ export default function HomePage() {
             <div key={item} className="bg-white rounded-xl shadow-sm p-4 text-center">
               <div className="bg-[#e6efe9] rounded-lg p-6 mb-4">
                 <Image
-                  src="/plant.png"
-                  alt="Plant"
-                  width={120}
-                  height={120}
+                  src="/t_shirt1.jpeg"
+                  alt="T-Shirt"
+                  width={180}
+                  height={180}
                   className="mx-auto"
                 />
               </div>

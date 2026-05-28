@@ -7,7 +7,6 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-
 export default function Footer() {
   return (
     <footer className="bg-[#123c2a] text-gray-300 mt-20">
@@ -17,7 +16,7 @@ export default function Footer() {
             SKYLISH
           </h4>
           <p className="text-sm">
-            Bringing nature closer to your home.
+            Bring your own style closer to you.
           </p>
         </div>
 

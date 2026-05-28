@@ -10,7 +10,7 @@ export default async function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-[70vh] items-center justify-center bg-[radial-gradient(circle_at_top,#ecfdf5,transparent_45%)] px-4">
+    <div className="flex min-h-[70vh] items-center justify-center bg-[radial-gradient(circle_at_top,#ecfdf5)] px-4">
       <AuthForm mode="login" />
     </div>
   );

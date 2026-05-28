@@ -1,10 +1,17 @@
 import { NextResponse } from "next/server";
 import { createSession, attachSessionCookie } from "@/lib/auth/session";
+import { getAuthConfigError } from "@/lib/auth/config";
 import { createOrEnableCredentialsUser } from "@/lib/auth/users";
 import { validatePassword } from "@/lib/auth/passwords";
 
 export async function POST(request) {
   try {
+    const configError = getAuthConfigError("credentials");
+
+    if (configError) {
+      return NextResponse.json({ error: configError }, { status: 500 });
+    }
+
     const body = await request.json();
     const name = body?.name || "";
     const email = body?.email || "";
@@ -38,7 +45,12 @@ export async function POST(request) {
     console.error("Registration error:", error);
 
     return NextResponse.json(
-      { error: "We couldn't complete registration right now." },
+      {
+        error:
+          process.env.NODE_ENV === "development"
+            ? error.message || "We couldn't complete registration right now."
+            : "We couldn't complete registration right now.",
+      },
       { status: 500 }
     );
   }

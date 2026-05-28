@@ -1,9 +1,16 @@
 import { NextResponse } from "next/server";
+import { getAuthConfigError } from "@/lib/auth/config";
 import { attachSessionCookie, createSession } from "@/lib/auth/session";
 import { authenticateCredentialsUser } from "@/lib/auth/users";
 
 export async function POST(request) {
   try {
+    const configError = getAuthConfigError("credentials");
+
+    if (configError) {
+      return NextResponse.json({ error: configError }, { status: 500 });
+    }
+
     const body = await request.json();
     const email = body?.email || "";
     const password = body?.password || "";
@@ -35,7 +42,12 @@ export async function POST(request) {
     console.error("Login error:", error);
 
     return NextResponse.json(
-      { error: "We couldn't sign you in right now." },
+      {
+        error:
+          process.env.NODE_ENV === "development"
+            ? error.message || "We couldn't sign you in right now."
+            : "We couldn't sign you in right now.",
+      },
       { status: 500 }
     );
   }
